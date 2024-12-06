@@ -1,23 +1,77 @@
-import { fetchWeatherData, fetchImages } from './apiModule.js';
+// Main Application JavaScript
+import { WeatherService } from './services/weatherService.js';
+import { NewsService } from './services/newsService.js';
+import { ThemeManager } from './modules/themeManager.js';
+import { ChartManager } from './modules/chartManager.js';
 
-// Weather Feature
-document.getElementById('fetchWeather').addEventListener('click', async () => {
-    const city = document.getElementById('cityInput').value;
-    const weatherData = await fetchWeatherData(city);
-    const weatherDiv = document.getElementById('weatherData');
-    weatherDiv.innerHTML = `
-        <p>City: ${weatherData.name}</p>
-        <p>Temperature: ${(weatherData.main.temp - 273.15).toFixed(2)}°C</p>
-        <p>Weather: ${weatherData.weather[0].description}</p>
-    `;
-});
+class TechInsightsDashboard {
+    constructor() {
+        this.weatherService = new WeatherService();
+        this.newsService = new NewsService();
+        this.themeManager = new ThemeManager();
+        this.chartManager = new ChartManager();
 
-// Image Gallery
-document.getElementById('searchImages').addEventListener('input', async (e) => {
-    const query = e.target.value;
-    const images = await fetchImages(query);
-    const gallery = document.getElementById('galleryImages');
-    gallery.innerHTML = images
-        .map(img => `<img src="${img.urls.small}" alt="${img.alt_description}" />`)
-        .join('');
+        this.initializeApp();
+    }
+
+    async initializeApp() {
+        try {
+            this.setupThemeToggle();
+            await this.loadWeatherData();
+            await this.loadNewsData();
+            this.renderTechTrendsChart();
+        } catch (error) {
+            this.handleError(error);
+        }
+    }
+
+    setupThemeToggle() {
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('change', () => {
+            this.themeManager.toggleTheme();
+        });
+    }
+
+    async loadWeatherData() {
+        const weatherContainer = document.getElementById('weather-container');
+        try {
+            const weatherData = await this.weatherService.getCurrentWeather('New York');
+            weatherContainer.innerHTML = `
+                <p>Temperature: ${weatherData.main.temp}°C</p>
+                <p>Condition: ${weatherData.weather[0].description}</p>
+            `;
+        } catch (error) {
+            weatherContainer.innerHTML = 'Unable to load weather data';
+        }
+    }
+
+    async loadNewsData() {
+        const newsContainer = document.getElementById('news-container');
+        try {
+            const newsArticles = await this.newsService.getTopTechNews();
+            newsContainer.innerHTML = newsArticles.map(article => `
+                <div class="news-item">
+                    <h4>${article.title}</h4>
+                    <p>${article.description}</p>
+                </div>
+            `).join('');
+        } catch (error) {
+            newsContainer.innerHTML = 'Unable to load news';
+        }
+    }
+
+    renderTechTrendsChart() {
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        this.chartManager.createTechTrendsChart(ctx);
+    }
+
+    handleError(error) {
+        console.error('Application Error:', error);
+        // Implement user-friendly error notification
+    }
+}
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+    new TechInsightsDashboard();
 });
