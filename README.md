@@ -1,28 +1,17 @@
-# Weather Explorer
+# Interactive Data Dashboard
 
-A web application that allows users to explore weather data from around the world.
+An advanced, interactive data dashboard demonstrating modular JavaScript, API integrations, and responsive design.
 
 ## Features
+- **Weather Widget**: Fetch and display live weather data.
+- **Stock Market Widget**: Interactive stock market chart.
+- **News Widget**: Displays live news headlines.
+- **Dark Mode**: Toggle theme with local storage persistence.
 
-* Get current weather data for user location
-* Display weather data in a card layout
-* Store user location in local storage
+## Getting Started
+1. Clone the repository:
+2. Open the project folder.
+3. Replace `YOUR_API_KEY` in the weather and news modules with your API keys.
 
-## Technologies Used
-
-* HTML5
-* CSS3
-* JavaScript (ES6+)
-* OpenWeatherMap API
-* Geolocation API
-* Local Storage API
-
-## Installation
-
-1. Clone the repository: `git clone https://github.com/your-username/weather-explorer.git`
-2. Open the project in your code editor
-3. Open `index.html` in your web browser
-
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
+## Deployment
+Deployed on [GitHub Pages](https://<your-username>.github.io/interactive-data-dashboard/).

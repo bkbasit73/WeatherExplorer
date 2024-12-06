@@ -1,49 +1,61 @@
-/* Basic styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 header {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
     padding: 5px 10px;
+    background-color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px;
-}
-
-#weather-widget, #stock-widget, #news-widget {
+#weather-widget, #news-container {
+    padding: 15px;
     border: 1px solid #ddd;
-    padding: 20px;
-    margin: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: white;
 }
 
-#theme-toggle {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+canvas {
+    margin: 20px 0;
 }
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #333;
-    color: #fff;
+    background-color: #121212;
+    color: #f9f9f9;
 }
 
 body.dark-mode header {
-    background-color: #111;
+    background-color: #333;
 }

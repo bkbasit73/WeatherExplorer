@@ -1,17 +1,20 @@
-import Chart from 'chart.js';
+const weatherWidget = document.getElementById("weather-widget");
+const apiKey = "YOUR_OPENWEATHER_API_KEY"; // Replace this with your OpenWeather API Key
 
-function renderWeatherChart(data) {
-    const ctx = document.getElementById('weatherChart').getContext('2d');
-    const weatherChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['12:00', '03:00', '06:00', '09:00', '12:00'],
-            datasets: [{
-                label: 'Temperature',
-                data: [20, 22, 19, 21, 24], // Sample data, replace with actual API data
-                borderColor: 'rgba(75, 192, 192, 1)',
-                fill: false,
-            }]
-        }
-    });
+async function fetchWeather() {
+    try {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=Toronto&units=metric&appid=${apiKey}`
+        );
+        const data = await response.json();
+        weatherWidget.innerHTML = `
+            <h3>${data.name}</h3>
+            <p>${data.weather[0].description}</p>
+            <p>Temperature: ${data.main.temp}°C</p>
+        `;
+    } catch (error) {
+        weatherWidget.innerHTML = `<p>Error fetching weather data.</p>`;
+    }
 }
+
+fetchWeather();

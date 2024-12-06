@@ -1,20 +1,24 @@
-// Function to store data in local storage
-export function storeData(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+const stockChartCanvas = document.getElementById("stock-chart");
+const stockData = [150, 160, 145, 170, 165]; // Mock stock prices
+
+function renderStockChart() {
+    const ctx = stockChartCanvas.getContext("2d");
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+            datasets: [
+                {
+                    label: "Stock Prices",
+                    data: stockData,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    fill: true,
+                },
+            ],
+        },
+    });
 }
 
-// Function to retrieve data from local storage
-export function retrieveData(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-}
-// Function to store data in local storage
-export function storeData(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-
-// Function to retrieve data from local storage
-export function retrieveData(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-}
+// Include Chart.js via CDN in `index.html`
+renderStockChart();

@@ -1,14 +1,26 @@
-// Function to get user location using Geolocation API
-export function getUserLocation() {
-    return new Promise((resolve) => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            resolve({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            });
-        }, (error) => {
-            console.error('Error getting user location:', error);
-            resolve(null);
-        });
-    });
+const newsContainer = document.getElementById("news-container");
+const newsApiKey = "YOUR_NEWS_API_KEY"; // Replace this with your NewsAPI key
+
+async function fetchNews() {
+    try {
+        const response = await fetch(
+            `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${newsApiKey}`
+        );
+        const { articles } = await response.json();
+        newsContainer.innerHTML = articles
+            .slice(0, 5)
+            .map(
+                (article) => `
+                <div>
+                    <h4>${article.title}</h4>
+                    <p>${article.description}</p>
+                </div>
+            `
+            )
+            .join("");
+    } catch (error) {
+        newsContainer.innerHTML = `<p>Error fetching news.</p>`;
+    }
 }
+
+fetchNews();

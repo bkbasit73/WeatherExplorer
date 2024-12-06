@@ -9,37 +9,38 @@
   <body>
     <header>
       <nav>
-        <h1>Interactive Dashboard</h1>
+        <ul>
+          <li><a href="#weather">Weather</a></li>
+          <li><a href="#stocks">Stocks</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
         <button id="theme-toggle">Toggle Dark Mode</button>
       </nav>
     </header>
 
     <main>
-      <section id="weather-widget">
+      <!-- Weather Section -->
+      <section id="weather">
         <h2>Weather</h2>
-        <canvas id="weatherChart"></canvas>
+        <div id="weather-widget">Loading weather...</div>
       </section>
 
-      <section id="stock-widget">
-        <h2>Stock Data</h2>
-        <div id="stock-data"></div>
+      <!-- Stocks Section -->
+      <section id="stocks">
+        <h2>Stock Market</h2>
+        <canvas id="stock-chart" width="400" height="200"></canvas>
       </section>
 
-      <section id="news-widget">
-        <h2>Latest News</h2>
-        <div id="news-list"></div>
-      </section>
-
-      <section id="login-form">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <input type="text" id="username" placeholder="Username" />
-          <input type="password" id="password" placeholder="Password" />
-          <button type="submit">Login</button>
-        </form>
+      <!-- News Section -->
+      <section id="news">
+        <h2>News</h2>
+        <div id="news-container">Loading news...</div>
       </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="js/index.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/stocks.js"></script>
+    <script src="js/news.js"></script>
   </body>
 </html>
