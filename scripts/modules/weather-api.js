@@ -1,10 +1,17 @@
-// Import API key from environment variables
-const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
+import Chart from 'chart.js';
 
-// Function to get weather data from OpenWeatherMap API
-export function getWeatherData(location) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}&units=metric`;
-    return fetch(url)
-        .then((response) => response.json())
-        .catch((error) => console.error('Error fetching weather data:', error));
+function renderWeatherChart(data) {
+    const ctx = document.getElementById('weatherChart').getContext('2d');
+    const weatherChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '03:00', '06:00', '09:00', '12:00'],
+            datasets: [{
+                label: 'Temperature',
+                data: [20, 22, 19, 21, 24], // Sample data, replace with actual API data
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }]
+        }
+    });
 }

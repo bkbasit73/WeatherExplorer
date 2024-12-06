@@ -1,7 +1,8 @@
 // Import modules
 import { getWeatherData } from './modules/weather-api.js';
-import { getUserLocation } from './modules/geolocation.js';
-import { storeData } from './modules/storage.js';
+import { getUserLocation } from './modules/news.js';
+import { storeData } from './modules/stock.js';
+import { renderWeatherCard } from './modules/weather-card.js';
 
 // Get weather data button
 const getWeatherBtn = document.getElementById('get-weather-btn');
@@ -14,8 +15,8 @@ getWeatherBtn.addEventListener('click', () => {
             // Get weather data for user location
             getWeatherData(location)
                 .then((weatherData) => {
-                    // Render weather data
-                    renderWeatherData(weatherData);
+                    // Render weather card
+                    renderWeatherCard(weatherData);
                 })
                 .catch((error) => {
                     console.error('Error fetching weather data:', error);
@@ -25,15 +26,3 @@ getWeatherBtn.addEventListener('click', () => {
             console.error('Error getting user location:', error);
         });
 });
-
-// Render weather data
-function renderWeatherData(weatherData) {
-    const weatherCard = document.getElementById('weather-card');
-    weatherCard.innerHTML = `
-        <h2>${weatherData.name}</h2>
-        <p>Temperature: ${weatherData.main.temp}°C</p>
-        <p>Humidity: ${weatherData.main.humidity}%</p>
-        <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
-        <img src="https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png" alt="Weather Icon">
-    `;
-}

@@ -3,32 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Explorer</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Interactive Data Dashboard</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <h1>Interactive Dashboard</h1>
+        <button id="theme-toggle">Toggle Dark Mode</button>
       </nav>
     </header>
+
     <main>
-      <section class="hero">
-        <h1>Weather Explorer</h1>
-        <p>Explore the weather from around the world</p>
-        <button id="get-weather-btn">Get Weather</button>
+      <section id="weather-widget">
+        <h2>Weather</h2>
+        <canvas id="weatherChart"></canvas>
       </section>
-      <section class="weather-data">
-        <h2>Current Weather</h2>
-        <div id="weather-card">
-          <!-- Weather data will be displayed here -->
-        </div>
+
+      <section id="stock-widget">
+        <h2>Stock Data</h2>
+        <div id="stock-data"></div>
+      </section>
+
+      <section id="news-widget">
+        <h2>Latest News</h2>
+        <div id="news-list"></div>
+      </section>
+
+      <section id="login-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" />
+          <input type="password" id="password" placeholder="Password" />
+          <button type="submit">Login</button>
+        </form>
       </section>
     </main>
-    <script src="script.js"></script>
+
+    <script src="js/index.js"></script>
   </body>
 </html>
