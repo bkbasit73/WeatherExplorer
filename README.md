@@ -1,17 +1,15 @@
-# Interactive Data Dashboard
+# Master-Level Web Application
 
-An advanced, interactive data dashboard demonstrating modular JavaScript, API integrations, and responsive design.
+## Overview
+A dynamic web application showcasing modular architecture, weather data visualization, and an interactive image gallery.
 
-## Features
-- **Weather Widget**: Fetch and display live weather data.
-- **Stock Market Widget**: Interactive stock market chart.
-- **News Widget**: Displays live news headlines.
-- **Dark Mode**: Toggle theme with local storage persistence.
+### Features
+1. **Weather Data**: Fetches live weather data using the OpenWeatherMap API.
+2. **Image Gallery**: Displays images dynamically using the Unsplash API.
+3. **Dark Mode**: User-friendly dark mode toggle with saved preferences.
 
-## Getting Started
+### Setup
 1. Clone the repository:
-2. Open the project folder.
-3. Replace `YOUR_API_KEY` in the weather and news modules with your API keys.
-
-## Deployment
-Deployed on [GitHub Pages](https://<your-username>.github.io/interactive-data-dashboard/).
+   ```bash
+   git clone https://github.com/bkbasit73/WeatherExplorer.git
+   cd project
