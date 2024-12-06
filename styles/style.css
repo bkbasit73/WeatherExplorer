@@ -1,110 +1,108 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --background-light: #f4f4f4;
-    --background-dark: #2c3e50;
-    --text-light: #333;
-    --text-dark: #ecf0f1;
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-light: #f4f4f4;
+  --background-dark: #2c3e50;
+  --text-light: #333;
+  --text-dark: #ecf0f1;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: var(--background-light);
-    color: var(--text-light);
-    transition: background-color 0.3s, color 0.3s;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+  background-color: var(--background-dark);
+  color: var(--text-dark);
 }
 
 .app-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Navigation Styles */
 .main-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 0;
 }
 
 .main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .nav-links li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 .nav-links a.active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* Theme Toggle Styles */
 .theme-toggle {
-    position: relative;
+  position: relative;
 }
 
 .theme-switch-input {
-    display: none;
+  display: none;
 }
 
 .theme-switch-label {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
 }
 
 .theme-switch-label i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .theme-switch-label .fa-moon {
-    left: -25px;
-    color: #333;
+  left: -25px;
+  color: #333;
 }
 
 .theme-switch-label .fa-sun {
-    right: -25px;
-    color: #f39c12;
+  right: -25px;
+  color: #f39c12;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-nav {
-        flex-direction: column;
-        align-items: center;
-    }
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .nav-links {
-        margin: 15px 0;
-    }
+  .nav-links {
+    margin: 15px 0;
+  }
 }
-
-/* Additional component styles would follow */
