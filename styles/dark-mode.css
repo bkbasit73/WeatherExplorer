@@ -42,15 +42,6 @@ body.dark-mode .social-links .social-icon {
   color: #ecf0f1;
 }
 
-body.dark-mode .theme-toggle {
-  transition: all 0.3s ease;
-}
-
-body.dark-mode .nav-links a.active {
-  font-weight: bold;
-  color: #2ecc71; /* Highlight active links in dark mode */
-}
-
 /* Dark Mode Container */
 body.dark-mode .app-container {
   background-color: #34495e;

@@ -53,6 +53,28 @@
           </div>
         </section>
 
+        <script>
+          const themeSwitch = document.getElementById("theme-switch");
+          const body = document.body;
+
+          // Check local storage for the preferred theme
+          if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+            themeSwitch.checked = true;
+          }
+
+          // Toggle dark mode
+          themeSwitch.addEventListener("change", () => {
+            if (themeSwitch.checked) {
+              body.classList.add("dark-mode");
+              localStorage.setItem("theme", "dark"); // Save user preference
+            } else {
+              body.classList.remove("dark-mode");
+              localStorage.setItem("theme", "light"); // Save user preference
+            }
+          });
+        </script>
+
         <section class="interactive-chart">
           <h2>Tech Trends Visualization</h2>
           <canvas id="trendChart"></canvas>
