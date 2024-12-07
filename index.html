@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tech Insights Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link
@@ -16,7 +17,7 @@
     <div class="app-container">
       <header class="main-header">
         <nav class="main-nav">
-          <div class="logo">Tech Insights</div>
+          <div class="logo">Weather Expo</div>
           <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
@@ -91,6 +92,17 @@
       </footer>
     </div>
 
+    <script type="module" src="js/apiModule.js"></script>
+    <script type="module" src="darkModeToggle.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script>
+      // Toggle Dark Mode
+      const themeSwitch = document.getElementById("theme-switch");
+      const body = document.body;
+
+      themeSwitch.addEventListener("change", () => {
+        body.classList.toggle("dark-mode", themeSwitch.checked);
+      });
+    </script>
   </body>
 </html>
